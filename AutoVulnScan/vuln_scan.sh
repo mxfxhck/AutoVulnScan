@@ -10,7 +10,7 @@ PORT_RANGE="1-1024"
 OUTPUT_DIR="./scan_results"
 mkdir -p $OUTPUT_DIR
 
-# Set the scanning tools to use (e.g., nmap, nikto, etc.)
+# Set the scanning tools to use
 TOOLS=("nmap" "nikto")
 
 # Function to run nmap scan
