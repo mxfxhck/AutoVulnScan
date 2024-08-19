@@ -10,18 +10,19 @@ PORT_RANGE="1-1024"
 OUTPUT_DIR="./scan_results"
 mkdir -p $OUTPUT_DIR
 
-# Set the scanning tools to use
+# Set the scanning tools to use (e.g., nmap, nikto, etc.)
 TOOLS=("nmap" "nikto")
 
 # Function to run nmap scan
 nmap_scan() {
   echo "Running nmap scan..."
-   nmap -sS -p $PORT_RANGE $TARGET -oN $OUTPUT_DIR/nmap_scan.txt
+  nmap -sS -p $PORT_RANGE $TARGET -oN $OUTPUT_DIR/nmap_scan.txt
+}
 
 # Function to run nikto scan
 nikto_scan() {
   echo "Running nikto scan..."
-  timeout 300 nikto -h $TARGET -p $PORT_RANGE -o $OUTPUT_DIR/nikto_scan.txt
+  nikto -h $TARGET -p $PORT_RANGE -o $OUTPUT_DIR/nikto_scan.txt
 }
 
 # Function to upload results to S3
