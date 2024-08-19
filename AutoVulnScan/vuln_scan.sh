@@ -16,13 +16,12 @@ TOOLS=("nmap" "nikto")
 # Function to run nmap scan
 nmap_scan() {
   echo "Running nmap scan..."
-  timeout 300 nikto -h $TARGET -p $PORT_RANGE -o $OUTPUT_DIR/nikto_scan.txt
-}
+   nmap -sS -p $PORT_RANGE $TARGET -oN $OUTPUT_DIR/nmap_scan.txt
 
 # Function to run nikto scan
 nikto_scan() {
   echo "Running nikto scan..."
-  nikto -h $TARGET -p $PORT_RANGE -o $OUTPUT_DIR/nikto_scan.txt
+  timeout 300 nikto -h $TARGET -p $PORT_RANGE -o $OUTPUT_DIR/nikto_scan.txt
 }
 
 # Function to upload results to S3
