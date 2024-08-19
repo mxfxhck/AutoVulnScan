@@ -16,7 +16,7 @@ TOOLS=("nmap" "nikto")
 # Function to run nmap scan
 nmap_scan() {
   echo "Running nmap scan..."
-  nmap -sS -p $PORT_RANGE $TARGET -oN $OUTPUT_DIR/nmap_scan.txt
+  timeout 300 nikto -h $TARGET -p $PORT_RANGE -o $OUTPUT_DIR/nikto_scan.txt
 }
 
 # Function to run nikto scan
