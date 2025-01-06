@@ -3,14 +3,14 @@
 # Prompt the user to enter the target IP address or hostname
 read -p "Enter the target IP address or hostname: " TARGET
 
-# Set the port range to scan (e.g., 1-1024)
+# Set the port range to scan 
 PORT_RANGE="1-1024"
 
 # Directory to save output files
 OUTPUT_DIR="./scan_results"
 mkdir -p $OUTPUT_DIR
 
-# Set the scanning tools to use (e.g., nmap, nikto, etc.)
+# Set the scanning tools to use 
 TOOLS=("nmap" "nikto")
 
 # Function to run nmap scan
